@@ -15,6 +15,17 @@ class myCard extends StatefulWidget {
 }
 
 class _myCardState extends State<myCard> {
+
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Home(),
+    );
+  }
+}
+class Home extends StatelessWidget {
+  const Home({Key key}) : super(key: key);
   void openUrl() async {
     const url = 'https://www.linkedin.com/in/gaidaa-haj/';
     if (await canLaunch(url)) {
@@ -23,72 +34,55 @@ class _myCardState extends State<myCard> {
       throw 'Could not launch $url';
     }
   }
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.teal,
-        body: SafeArea(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage('assets/me.png'),
-                  radius: 50,
-                ),
-                Text(
-                  "Gaidaa Haj",
-                  style: GoogleFonts.dosis(
-                      textStyle: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                  )),
-                ),
-                Text(
-                  "Computer Science and Business Administration Student",
-                  style: GoogleFonts.caveat(
-                      textStyle: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  )),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(50,10,50,0),
-                  child: GestureDetector(
-                    onTap: () {
+    Size size= MediaQuery.of(context).size;
+    return Scaffold(
+      backgroundColor: Colors.teal,
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                backgroundImage: AssetImage('assets/me.png'),
+                radius: size.width*0.2,
+              ),
+              Text(
+                "Gaidaa Haj",
+                style: GoogleFonts.dosis(
+                    textStyle: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                    )),
+              ),
+              Text(
+                "Computer Science and Business Administration Student",
+                style: GoogleFonts.caveat(
+                    textStyle: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    )),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(50,10,50,0),
+                child: GestureDetector(
+                  onTap: () {
 
-                       openUrl();
-                    },
-                    child: Card(
-
-                      margin: EdgeInsets.all(10),
-                      child:
-
-                      ListTile(
-                        leading: Icon(Icons.email_outlined,color: Colors.teal,),
-                        title: Text("gaidaahaj2@gmail.com",
-
-                          style:GoogleFonts.caveat(
-                              textStyle: TextStyle(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.bold)),
-                        ),
-                      ),
-                      ),
-                  ),
-                  ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(50,10,50,0),
+                    openUrl();
+                  },
                   child: Card(
+
                     margin: EdgeInsets.all(10),
-                    child:ListTile(
-                      leading: Text("in",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.teal),),
-                      title: Text("Gaidaa Haj",
+                    child:
+
+                    ListTile(
+                      leading: Icon(Icons.email_outlined,color: Colors.teal,),
+                      title: Text("gaidaahaj2@gmail.com",
+
                         style:GoogleFonts.caveat(
                             textStyle: TextStyle(
                                 fontSize: 25,
@@ -97,38 +91,53 @@ class _myCardState extends State<myCard> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(50,10,50,0),
-                  child: Card(
-                    margin: EdgeInsets.all(10),
-                    child:ListTile(
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(50,10,50,0),
+                child: Card(
+                  margin: EdgeInsets.all(10),
+                  child:ListTile(
+                    leading: Text("in",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.teal),),
+                    title: Text("Gaidaa Haj",
+                      style:GoogleFonts.caveat(
+                          textStyle: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold)),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(50,10,50,0),
+                child: Card(
+                  margin: EdgeInsets.all(10),
+                  child:ListTile(
                       leading: Icon(Icons.phone,color: Colors.teal,),
                       title: Text("0586403691",
                         style:GoogleFonts.caveat(
-                      textStyle: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold)),)
-                    ),
+                            textStyle: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold)),)
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(50,10,50,0),
-                  child: Card(
-                    margin: EdgeInsets.all(10),
-                    child:ListTile(
-                        leading: Text("GitHub",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.teal),),
-                        title: Text("Apps4c",
-                          style:GoogleFonts.caveat(
-                              textStyle: TextStyle(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.bold)),)
-                    ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(50,10,50,0),
+                child: Card(
+                  margin: EdgeInsets.all(10),
+                  child:ListTile(
+                      leading: Text("GitHub",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.teal),),
+                      title: Text("Apps4c",
+                        style:GoogleFonts.caveat(
+                            textStyle: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold)),)
                   ),
                 ),
+              ),
 
 
-              ],
-            ),
+            ],
           ),
         ),
       ),
